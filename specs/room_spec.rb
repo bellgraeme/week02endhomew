@@ -22,6 +22,7 @@ class TestRoom < MiniTest::Test
     @group.add_guest(@guest1, @guest2, @guest3, @guest4,@guest5,@guest6)
 
     @room1 = Room.new(8, 200)
+    @room2 = Room.new(5, 100)
 
   end
 
@@ -59,9 +60,12 @@ class TestRoom < MiniTest::Test
         assert_equal(false, @room1.occupancy)
     end
 
-    def test_room_capacity_for_group
+    def test_room_capacity_for_group__fits
         assert_equal(true,@room1.room_fit(@group))
+    end
 
+    def test_room_capacity_forgroup__notfit
+        assert_equal(false,@room2.room_fit(@group))
     end
 
   

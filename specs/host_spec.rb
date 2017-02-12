@@ -48,6 +48,11 @@ class TestHost < MiniTest::Test
     assert_equal(true, @host.availabilty )
   end
 
+  def test_take_booking
+   assert_equal("Welcome to those about to Rock!",@host.take_booking(@room1, @group))
+  end
+
+
 end
 
 
