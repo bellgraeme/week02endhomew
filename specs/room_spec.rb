@@ -59,5 +59,10 @@ class TestRoom < MiniTest::Test
         assert_equal(false, @room1.occupancy)
     end
 
+    def test_room_capacity_for_group
+        assert_equal(true,@room1.room_fit(@group))
+
+    end
+
   
 end

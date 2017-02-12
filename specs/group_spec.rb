@@ -16,6 +16,9 @@ class TestGroup < MiniTest::Test
     @guest4 = Guest.new("Sally", "Smooth Criminal", 34)
     @guest5 = Guest.new("Barbra", "Like a Virgin", 99)
     @guest6 = Guest.new("Helen", "You're my Hero", 5)
+
+    @group.add_guest(@guest1, @guest2, @guest3, @guest4,@guest5,@guest6)
+
   end
 
   def test_can_add_guest_to_group
@@ -25,13 +28,13 @@ class TestGroup < MiniTest::Test
   end
 
   def test_can_remove_guest_from_group
-    @group.add_guest(@guest1, @guest2, @guest3, @guest4,@guest5,@guest6)
+    
     @group.remove_guest("Joe")
     assert_equal(5, @group.guests.length)
   end
 
   def test_group_money
-    assert_equal(269, @group.total)
+    assert_equal(269, @group.total_map)
   end
 
 end

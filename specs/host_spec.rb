@@ -30,8 +30,10 @@ class TestHost < MiniTest::Test
     @room7 = Room.new(4, 110)
     @room8 = Room.new(3, 3000000)
 
-    @host = Host.new(400)
+    @room1.add_group(@group)
 
+    @host = Host.new(400)
+    @host.add_room(@room2, @room3, @room4, @room5, @room6, @room7, @room8,@room1)
   end
 
   def test_has_money
@@ -39,11 +41,15 @@ class TestHost < MiniTest::Test
   end
 
   def test_can_add_room
-    @host.add_room(@room2,@room3,@room4,@room5,@room6,@room7,@room8,@room1)
     assert_equal(8, @host.rooms.length)
-
   end
+
+  def test_availabilty
+    assert_equal(true, @host.availabilty )
+  end
+
 end
+
 
 
 
