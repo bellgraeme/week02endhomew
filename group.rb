@@ -3,7 +3,6 @@
 class  Group
 
   attr_reader :pot, :guests
-  attr_accessor 
 
   def initialize(pot)
     @guests = []
@@ -38,6 +37,11 @@ class  Group
       sum = 0
       total.each{|x| sum += x}
       return sum
+    end
+
+    def group_pay(room)
+      @pot -= room.price
+      return room.price
     end
 
 end

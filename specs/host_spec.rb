@@ -11,6 +11,7 @@ class TestHost < MiniTest::Test
   def setup
 
     @group = Group.new(200)
+    @group2 = Group.new(100)
 
     @guest1 = Guest.new("Joe", "Purple Rain", 50)
     @guest2 = Guest.new("Bob", "Come as you are", 3)
@@ -49,10 +50,29 @@ class TestHost < MiniTest::Test
   end
 
   def test_take_booking
-   assert_equal("Welcome to those about to Rock!",@host.take_booking(@room1, @group))
+   assert_equal("Thanks for the money, see you on the Date",@host.take_booking(@room1, @group))
   end
 
+  def test_group_has_paid
+    @host.take_booking(@room1, @group)
+    assert_equal(0,@group.pot)
+  end
+  def test_group_can_not_afford
+    @host.take_booking(@room1, @group2)
+    assert_equal("You're skint, come back later",@host.take_booking(@room1, @group2))
+  end
 
+  def test_take_group_payment
+    @host.take_group_payment(@room1, @group)
+    assert_equal(600, @host.money)
+    assert_equal(0, @group.pot)
+  end
+
+  def test_take_guest_payment
+    @host.take_guest_payment(@guest1, 5)
+    assert_equal(45, @guest1.money)
+    assert_equal(405,@host.money)
+  end
 end
 
 

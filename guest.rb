@@ -2,7 +2,7 @@ require('pry')
 
 class  Guest
 
-attr_reader :song, :name, :money
+attr_accessor :song, :name, :money
 
 def initialize(name, song, money)
   @name = name
@@ -19,6 +19,7 @@ end
 
 def payment(amount)
   @money = @money - amount
+  return amount
 end
 
 def cheer

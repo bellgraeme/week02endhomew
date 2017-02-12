@@ -20,8 +20,10 @@ def test_guest_has_money
 end
 
 def test_payment
-  assert_equal(45, @guest.payment(5))
+	@guest.payment(5)
+  assert_equal(45, @guest.money)
 end
+
 def test_cheer
   assert_equal("Dis iz ma Fav!", @guest.cheer)
 end
