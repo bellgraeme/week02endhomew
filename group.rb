@@ -2,7 +2,8 @@
 
 class  Group
 
-  attr_reader :pot, :guests
+  attr_reader :guests
+  attr_accessor :pot
 
   def initialize(pot)
     @guests = []

@@ -21,7 +21,7 @@ class  Room
   end
 
   def add_song(*song)
-    song.each {|item| @song_list << song} 
+    song.each { |item| @song_list << song } 
   end
 
   def add_group(group)

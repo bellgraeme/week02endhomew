@@ -29,19 +29,23 @@ class Host
 	end
 
 	def take_booking(room, group)
+		# binding.pry
 		if availabilty == true
 			if afford(room, group) == true
 				if room.group_fit(group) == true
-					group.group_pay(room)
-					return  "Thanks for the money, see you on the Date"
+					take_group_payment(room, group)
+					puts  "The room is available and you have paid for it, see you on the Date"
 				else
-					return "Sorry you're to Phat for us!"
+					puts "Sorry you're to Phat for us!"
+					return abort
 				end
 			else
-				 return "You're skint, come back later"
+				 puts "You're skint, come back later"
+				 return abort
 				end
 		else
-			return "Too late to make a booking, we are open for bribes though?"
+			puts "Too late to make a booking, but we are open for bribes though?"
+			return abort
 		end
 	end
 

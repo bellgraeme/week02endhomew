@@ -17,7 +17,7 @@ class TestGroup < MiniTest::Test
     @guest2 = Guest.new("Bob", "Come as you are", 3)
     @guest3 = Guest.new("Karl", "November Rain", 78)
     @guest4 = Guest.new("Sally", "Smooth Criminal", 34)
-    @guest5 = Guest.new("Barbra", "Like a Virgin", 99)
+    @guest5 = Guest.new("Barbara", "Like a Virgin", 99)
     @guest6 = Guest.new("Helen", "You're my Hero", 5)
 
     @group.add_guest(@guest1, @guest2, @guest3, @guest4,@guest5,@guest6)
